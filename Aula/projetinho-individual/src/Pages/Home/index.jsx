@@ -20,14 +20,14 @@ export default function Home() {
     carro.toLowerCase().startsWith(search.toLowerCase())
   );
 
-  const handleAddCar = () => {
+  const AddCar = () => {
     if (newCarName.trim() !== '') {
       setCarros([...carros, newCarName]);
       setNewCarName('');
     }
   };
 
-  const handleDeleteCar = (carName) => {
+  const DeleteCar = (carName) => {
     const updatedCarros = carros.filter((carro) => carro !== carName);
     setCarros(updatedCarros);
   };
@@ -49,7 +49,7 @@ export default function Home() {
           {filteredCarros.map((carro, index) => (
             <li key={index}>
               {carro}
-              <button onClick={() => handleDeleteCar(carro)}>Excluir</button>
+              <button onClick={() => DeleteCar(carro)}>Excluir</button>
             </li>
           ))}
         </ul>
@@ -60,7 +60,7 @@ export default function Home() {
             value={newCarName}
             onChange={(e) => setNewCarName(e.target.value)}
           />
-          <button onClick={handleAddCar}>Adicionar Carro</button>
+          <button onClick={AddCar}>Adicionar Carro</button>
         </div>
       </div>
       <Footer />
